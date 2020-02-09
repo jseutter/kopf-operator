@@ -1,0 +1,1 @@
+{"apiVersion":"apps/v1","kind":"Deployment","metadata":{"labels":{"app":"sleepy"},"name":"sleepy","namespace":"db2"},"spec":{"replicas":1,"selector":{"matchLabels":{"app":"sleepy"}},"template":{"metadata":{"labels":{"app":"sleepy"}},"spec":{"containers":[{"image":"jseutter/sleepy@sha256:1556fbc9feeddbfa1161f0ccebd936fb69e618674acf99f87c4ce801231f16bd","name":"sleepy"}]}}}}

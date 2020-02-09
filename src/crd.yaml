@@ -1,0 +1,19 @@
+apiVersion: apiextensions.k8s.io/v1beta1
+kind: CustomResourceDefinition
+metadata:
+  name: db2claims.example.com
+spec:
+  scope: Namespaced
+  group: example.com
+  versions:
+    - name: v1
+      served: true
+      storage: true
+  names:
+    kind: DB2Claim
+    plural: db2claims
+    singular: db2claim
+    shortNames:
+      - db2cs
+      - db2c
+
