@@ -1,3 +1,9 @@
+# This script relies on some components already existing
+# - the DB2Claims Custom Resource Definition, found in
+#   crd.yaml in this directory
+# - the db2 namespace existing
+#
+
 import json
 import kopf
 import kubernetes
@@ -7,6 +13,7 @@ import yaml
 NAMESPACE = 'db2'
 DEPLOY_FILE = 'deployment.json'
 
+# Listen for db2claims events
 @kopf.on.create('example.com', 'v1', 'db2claims')
 def create_fn(body, **kwargs):
     # Create a container in our namespace (db2).
@@ -32,9 +39,9 @@ def create_fn(body, **kwargs):
 
 @kopf.on.delete('example.com', 'v1', 'db2claims')
 def delete_fn(**kwargs):
-    # If this is a deletion for a DB2Claim CRD, delete the
-    # corresponding container running in our protected db2
-    # namespace
+    # The db2claims object is being deleted.  Delete the
+    # corresponding container running in the protected
+    # db2 namespace.
 
     name = kwargs['name']
     configuration = kubernetes.client.Configuration()
