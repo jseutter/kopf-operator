@@ -1,2 +1,4 @@
 # kopf-operator
-kubernetes operator example
+kubernetes operator example.
+
+This uses the python kubernetes operator framework.
